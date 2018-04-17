@@ -44,7 +44,7 @@ public class JpaConfig {
      * @return
      */
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
         HibernateJpaVendorAdapter jpaVendor = new HibernateJpaVendorAdapter();
         jpaVendor.setGenerateDdl(false);//不让打印
@@ -72,7 +72,7 @@ public class JpaConfig {
     /**
      * 配置事务管理器
      * <p>
-     * 注意上面配置了工厂类,这里直接可以注入实例
+     * 注意上面@Bean声明了一个entityManagerFactorybean,这里直接可以参数注入实例了
      *
      * @return
      */
